@@ -1,4 +1,4 @@
-# Project Name
+# Basic Website Template
 
 Basic website frontend template run with nodejs. 
 
