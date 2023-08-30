@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+    :root {
+      --rich-black: #050015ff;
+      --persian-blue: #4132C3ff;
+      --federal-blue: #030059ff;
+      --lavender-floral: #B57EDCff;
+      --palatinate-blue: #0A3BDCff;
+    }
+
+    body {
+      color: var(--rich-black);
+      /* background-color: var(--lavender-floral); */
+      /* Setting the default text color */
+    }
+
+    .navbar {
+      display: flex;
+      background-color: var(--persian-blue);
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .navbar .brand-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar .nav-items {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .nav-items .btn {
+      margin-left: 10px;
+    }
+
+    .modal-content {
+      padding: 20px;
+    }
+
+    .navbar div {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .view-container {
+      margin: auto;
+      margin-bottom: 0;
+    }
+
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      /* background-color: var(--rich-black); */
+      /* color: var(--lavender-floral); */
+    }
+
+    .card .card-content {
+      padding: 24px;
+    }
+
+    .card .card-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .card .collection-item {
+      padding: 10px 16px;
+      border-radius: 4px;
+    }
+
+    .card .card-action {
+      padding: 24px;
+    }
+
+    .btn {
+      border-radius: 4px;
+    }
+
+    .row {
+      margin-bottom: 0;
+    }
+
+    .services-container {
+      margin-top: 50px;
+    }
+
+    .services-container .collection-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .services-container .collection-item .btn {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="view-container">
+    <div class="view-container">
+      <nav class="navbar">
+        <a href="#" class="brand-logo">My Website</a>
+        <div></div>
+        <div class="nav-items">
+          <button class="btn">Nav 1</button>
+          <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Login / Register</a>
+          <div></div>
+          
+        </div>
+      </nav>
+
+      <!-- Modal Trigger -->
+      <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+          <h4>Login / Register</h4>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal1" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>Login / Register</h4>
+        <div id="login-form">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+          <button class="btn" type="button" onclick="login()">Login</button>
+        </div>
+        <div id="register-form">
+          <input id="reg-email" type="email" class="validate">
+          <label for="reg-email">Email</label>
+          <input id="reg-password" type="password" class="validate">
+          <label for="reg-password">Password</label>
+          <button class="btn" type="button" onclick="register()">Register</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+<!-- <div class="w3-container">
+  <h2>W3.CSS Modal</h2>
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <p>Some text. Some text. Some text.</p>
+        <p>Some text. Some text. Some text.</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">User Login</span>
+              <form>
+                <div class="input-field">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+                <button class="btn" type="submit" onclick="login()">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">User Registration</span>
+              <form>
+                <div class="input-field">
+                  <input id="reg-email" type="email" class="validate">
+                  <label for="reg-email">Email</label>
+                </div>
+                <div class="input-field">
+                  <input id="reg-password" type="password" class="validate">
+                  <label for="reg-password">Password</label>
+                </div>
+                <button class="btn" type="submit" onclick="register()">Register</button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Welcome to My Website</span>
+              <p>This is the homepage of my website.</p>
+              <ul class="collection">
+                <li class="collection-item">Feature 1</li>
+                <li class="collection-item">Feature 2</li>
+                <li class="collection-item">Feature 3</li>
+              </ul>
+            </div>
+            <div class="card-action">
+              <a href="#" class="waves-effect waves-light btn">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-content services-container">
+              <span class="card-title">Server Services</span>
+              <ul id="services-list" class="collection">
+                <li class="collection-item">
+                  Service 1
+                  <button class="btn red" onclick="removeService(this)">Remove</button>
+                </li>
+                <li class="collection-item">
+                  Service 2
+                  <button class="btn red" onclick="removeService(this)">Remove</button>
+                </li>
+                <li class="collection-item">
+                  Service 3
+                  <button class="btn red" onclick="removeService(this)">Remove</button>
+                </li>
+              </ul>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="service-input" type="text" class="validate">
+                  <label for="service-input">Service Name</label>
+                </div>
+                <div class="col s6">
+                  <button class="btn" onclick="addService()">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Footer Content</h5>
+            <p class="grey-text text-lighten-4">Footer content.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="../database/db.js"></script>
+  <!-- Add the Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
+  <script>
+    // <!-- Initialize Firebase -->
+    import firebase from 'firebase/app';
+    import 'firebase/auth';
+    M.AutoInit();
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    import { getAnalytics } from "firebase/analytics";
+    import { getAuth } from "firebase/auth";
+    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5aGzr0oJhxzCqOEUd4bqmkPfgHELQ1Tw",
+      authDomain: "website-9bfc5.firebaseapp.com",
+      projectId: "website-9bfc5",
+      storageBucket: "website-9bfc5.appspot.com",
+      messagingSenderId: "248378575321",
+      appId: "1:248378575321:web:8ffc2dd30cee1a093fb1c8",
+      measurementId: "G-V3FTCXG8CQ"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // User signed in successfully
+          const user = userCredential.user;
+          console.log("User logged in:", user);
+        })
+        .catch((error) => {
+          // Handle login errors
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Login error:", errorCode, errorMessage);
+        });
+    }
+
+    function register() {
+      const email = document.getElementById("reg-email").value;
+      const password = document.getElementById("reg-password").value;
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // User registered successfully
+          const user = userCredential.user;
+          console.log("User registered:", user);
+        })
+        .catch((error) => {
+          // Handle registration errors
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Registration error:", errorCode, errorMessage);
+        });
+    }
+
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in 
+    //     const user = userCredential.user;
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //   });
+    // // Initialize Firebase Authentication and get a reference to the service
+
+
+
+    function addService() {
+      var input = document.getElementById("service-input");
+      var serviceName = input.value;
+      if (serviceName.trim() !== "") {
+        var listItem = createServiceListItem(serviceName);
+        var list = document.getElementById("services-list");
+        list.appendChild(listItem);
+        input.value = "";
+      }
+    }
+
+    function createServiceListItem(serviceName) {
+      var listItem = document.createElement("li");
+      listItem.className = "collection-item";
+      listItem.innerText = serviceName;
+      var removeButton = createRemoveButton();
+      listItem.appendChild(removeButton);
+      return listItem;
+    }
+
+    function createRemoveButton() {
+      var removeButton = document.createElement("button");
+      removeButton.className = "btn red";
+      removeButton.innerText = "Remove";
+      removeButton.onclick = function () {
+        removeService(this);
+      };
+      return removeButton;
+    }
+
+    function removeService(button) {
+      var listItem = button.parentNode;
+      var list = listItem.parentNode;
+      list.removeChild(listItem);
+    }
+
+    function oAuthLogin() {
+      // Create a new instance of the Google provider object
+      var provider = new firebase.auth.GoogleAuthProvider();
+      // Authenticate with Firebase using the Google provider object
+      firebase.auth().signInWithPopup(provider)
+        .then(function (result) {
+          // Handle successful authentication
+          console.log(result);
+        })
+        .catch(function (error) {
+          // Handle errors
+          console.log(error);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems, options);
+    });
+
+  </script>
+</body>
+
+</html>
